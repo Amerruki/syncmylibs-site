@@ -4,37 +4,29 @@ How SyncMyLibs looks and speaks outside the app. In-app design law lives in the 
 
 ## Idea
 
-Everything derives from the app icon: two library tiles, pink behind and blue in front, leaning toward each other over a deep navy ground, with one dusk photo where they cross. Two libraries, one photo.
+Everything derives from the app icon: two glass library tiles, pink behind and blue in front, leaning toward each other over a deep navy ground, with one dusk photo where they cross. The site should feel like the icon: glassy, fluid, translucent.
 
 ## Color
 
 | Token | Value | Role |
 |---|---|---|
-| Pink | `#8E4A7C` | The back tile. Paired with blue, never alone |
-| Blue | `#3D64AA` | The front tile. Text selection and any accent |
-| Light bg / ink | `#F7F6F9` / `#15192E` | Page base, light |
-| Dark bg / ink | `#0D1124` / `#ECEEF6` | Page base, dark |
+| Navy, top / bottom | `#18214A` / `#080B1A` | The page ground, a vertical gradient like the icon's |
+| Pink glow | `rgba(214, 96, 160, 0.22)` | The back tile, as a soft wash |
+| Blue glow | `rgba(74, 132, 222, 0.24)` | The front tile, as a soft wash |
+| Ink | `#F2F3FA` | Text |
 
-The sun amber in the icon stays in the icon. Success and error follow macOS system colors.
+Dark only. The sun amber stays in the icon.
 
 ## Type
 
-- Headlines: New York (`ui-serif`), weight 600, tight leading. Fallback Georgia.
-- Body: SF Pro (`-apple-system`), 18px base.
-- No all-caps labels, no tracked-out kickers, no monospace "fact" strips.
-
-Every reader is on an Apple device, so Apple's own faces cost nothing to load.
-
-## Layout and motion
-
-One narrow column. No glass cards, grain, fake app windows or icon grids. One entrance on load, off under `prefers-reduced-motion`.
+SF Pro (`-apple-system`). No all-caps labels, no tracked-out kickers, no monospace strips.
 
 ## Voice
 
-Say what the app does in plain sentences, then say where it falls short. Claim only what the app does today, and never imply it can be downloaded or bought before it can.
+Short and confident. Say what it is, never list what it lacks. Never imply it can be downloaded or bought before it can.
 
-Never use: em dashes, middots or dashes as separators between phrases, eyebrows above headings, "supercharge", "seamless", "blazingly", "AI-powered", or a feature that is really a release step (signing, notarization).
+Never use: em dashes, middots or dashes as separators, eyebrows above headings, "supercharge", "seamless", "blazingly", "AI-powered", or a release step dressed as a feature (signing, notarization).
 
 ## Icon
 
-Drawn from geometry by `Tools/IconGen/icon.py` in the app repo, which writes `Resources/AppIcon.icns`. The site's `/icon.png` is the 512px rendition from that file (`iconutil -c iconset`). Regenerate there and re-export; never hand-edit.
+`/icon.png` is the icon macOS shows for the installed app: the Liquid Glass render compiled from `Resources/AppIcon.icon` in the app repo, taken with `NSWorkspace.shared.icon(forFile: "/Applications/SyncMyLibs.app")` at 1024px and scaled to 512px. Do not use the flat `Resources/AppIcon.icns`; it is the fallback for older macOS and looks different.

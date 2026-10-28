@@ -4,125 +4,48 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SyncMyLibs</title>
-<meta name="description" content="A Mac app that opens all your Apple Photos libraries at once and moves photos between them with faces, keywords and albums still attached. Not released yet.">
-<meta name="color-scheme" content="light dark">
+<meta name="description" content="A new way to manage your photo libraries. Coming soon.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0d1330">
 <link rel="icon" type="image/png" href="/icon.png">
 <link rel="apple-touch-icon" href="/icon.png">
 <meta property="og:title" content="SyncMyLibs">
-<meta property="og:description" content="Photos opens one library. You have more than one.">
+<meta property="og:description" content="A new way to manage your photo libraries. Coming soon.">
 <meta property="og:image" content="https://syncmylibs.app/icon.png">
 <meta property="og:url" content="https://syncmylibs.app">
 <style>
-:root {
-  --serif: "New York", ui-serif, Georgia, serif;
-  --sans: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-
-  --blue: #3d64aa;
-
-  --bg: #f7f6f9;
-  --ink: #15192e;
-  --muted: #5b6075;
-  --line: rgba(21, 25, 46, 0.12);
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0d1124;
-    --ink: #eceef6;
-    --muted: #9da3ba;
-    --line: rgba(236, 238, 246, 0.12);
-  }
-}
-
 * { margin: 0; box-sizing: border-box; }
+html, body { height: 100%; }
 body {
-  font: 18px/1.6 var(--sans);
-  background: var(--bg);
-  color: var(--ink);
+  display: grid; place-items: center;
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  color: #f2f3fa;
+  background:
+    radial-gradient(40rem 32rem at 30% 30%, rgba(214, 96, 160, 0.22), transparent 70%),
+    radial-gradient(40rem 32rem at 72% 68%, rgba(74, 132, 222, 0.24), transparent 70%),
+    linear-gradient(180deg, #18214a, #080b1a);
   -webkit-font-smoothing: antialiased;
 }
-::selection { background: var(--blue); color: #fff; }
-
-main { max-width: 40rem; margin: 0 auto; padding: 0 1.25rem; }
-
-header { padding: 6rem 0 4.5rem; }
-.icon { width: 112px; height: 112px; display: block; margin: 0 0 2.25rem -10px; }
-h1 {
-  font: 600 clamp(2.4rem, 7vw, 3.6rem)/1.08 var(--serif);
-  letter-spacing: -0.015em;
-}
-.lede { margin-top: 1.5rem; font-size: 1.2rem; }
-.status { margin-top: 1.25rem; color: var(--muted); font-size: 1rem; }
-
-section { padding: 3.5rem 0; border-top: 1px solid var(--line); }
-h2 {
-  font: 600 1.75rem/1.2 var(--serif);
-  letter-spacing: -0.01em;
-  margin-bottom: 2rem;
-}
-h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
-.feature + .feature { margin-top: 2rem; }
-.feature p, .limits li { color: var(--muted); }
-
-.limits { list-style: none; padding: 0; }
-.limits li + li { margin-top: 1.1rem; }
-.limits strong { color: var(--ink); font-weight: 600; }
-
-footer { padding: 2.5rem 0 3.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
-
-header > * { animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
-header > :nth-child(2) { animation-delay: 0.08s; }
-header > :nth-child(3) { animation-delay: 0.16s; }
-header > :nth-child(4) { animation-delay: 0.24s; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); } }
-@media (prefers-reduced-motion: reduce) {
-  header > * { animation: none; }
-}
-
-@media (max-width: 30rem) {
-  body { font-size: 17px; }
-  header { padding: 3.5rem 0 3rem; }
-  .icon { width: 88px; height: 88px; margin-bottom: 1.75rem; }
+main { text-align: center; }
+img { width: 168px; height: 168px; display: block; margin: 0 auto 1.25rem; }
+h1 { font-size: clamp(2.25rem, 7vw, 3.25rem); font-weight: 700; letter-spacing: -0.02em; }
+p { margin-top: 0.6rem; font-size: clamp(1.1rem, 3.6vw, 1.35rem); color: rgba(242, 243, 250, 0.78); }
+.soon {
+  display: inline-block; margin-top: 2rem; padding: 0.55rem 1.3rem;
+  border-radius: 999px; font-size: 1rem; font-weight: 600; color: #f2f3fa;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
 }
 </style>
 </head>
 <body>
 <main>
-  <header>
-    <img class="icon" src="/icon.png" alt="SyncMyLibs app icon" width="112" height="112">
-    <h1>Photos opens one library. You have more than one.</h1>
-    <p class="lede">SyncMyLibs is a Mac app that opens all of them in one window and moves photos between them with the faces, keywords and albums still attached.</p>
-    <p class="status">Not released yet. It needs a Mac with Apple silicon and macOS 15 Sequoia or later.</p>
-  </header>
-
-  <section aria-labelledby="does">
-    <h2 id="does">What it does</h2>
-    <div class="feature">
-      <h3>Every library, open at once</h3>
-      <p>Your main library, the one Photos opens, and any others you keep, on this Mac or on an external drive, side by side in one sidebar.</p>
-    </div>
-    <div class="feature">
-      <h3>Photos move with their details</h3>
-      <p>Faces and people, keywords, albums and folders, locations, dates, photo edits, Live Photos and RAW+JPEG pairs come across with each photo. The original is never re-encoded.</p>
-    </div>
-    <div class="feature">
-      <h3>Merges without doubles</h3>
-      <p>Before one library goes into another, it finds the photos already there, exact copies or look-alikes, and asks whether to skip them.</p>
-    </div>
-  </section>
-
-  <section aria-labelledby="short">
-    <h2 id="short">Where it falls short</h2>
-    <ul class="limits">
-      <li><strong>Faces don't carry into your main library.</strong> Apple gives apps no way to write them there, so Photos finds the faces again on its own. Copies into any other library keep them.</li>
-      <li><strong>Edited videos arrive unedited.</strong> Photos keeps a video's edits as instructions, not as a finished file, so there is nothing to copy.</li>
-      <li><strong>People are matched by name.</strong> A copy won't work out that an unnamed face is someone you named in the other library.</li>
-      <li><strong>Albums lose their manual order.</strong> Every photo arrives, but not in the order you arranged them.</li>
-      <li><strong>Renaming or merging people in your main library stays on that Mac,</strong> and Photos has to be closed while it happens.</li>
-      <li><strong>It needs Full Disk Access,</strong> because macOS keeps photo libraries behind its file protections. It connects to two things only: the update check, and Apple Maps if you switch maps on, which sends a photo's location to Apple.</li>
-    </ul>
-  </section>
-
-  <footer>© 2027 Amerruki</footer>
+  <img src="/icon.png" alt="SyncMyLibs app icon" width="168" height="168">
+  <h1>SyncMyLibs</h1>
+  <p>A new way to manage your photo libraries</p>
+  <span class="soon">Coming soon</span>
 </main>
 </body>
 </html>
