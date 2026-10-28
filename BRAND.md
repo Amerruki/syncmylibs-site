@@ -1,66 +1,40 @@
-# SyncMyLibs — Brand & Design Identity
+# SyncMyLibs brand
 
-The single source of truth for how SyncMyLibs looks and speaks outside the app.
-(In-app design law lives in the app repo: `AI Audits/architecture-2026-07-31/DESIGN_LANGUAGE.md`.)
+How SyncMyLibs looks and speaks outside the app. In-app design law lives in the app repo.
 
 ## Idea
 
-**Libraries as physical cards, sync as an orbit.** Everything visual derives from
-the app icon: white photo cards (your libraries), a ring of motion around them
-(sync), an azure→indigo sky (macOS-native depth), one warm amber point (the sun
-in the card's photo — and the only "act now" color we own).
+Everything derives from the app icon: two library tiles, pink behind and blue in front, leaning toward each other over a deep navy ground, with one dusk photo where they cross. Two libraries, one photo.
 
 ## Color
 
 | Token | Value | Role |
 |---|---|---|
-| Azure | `#52A6F8` | Brand primary; links, kickers, active accents |
-| Indigo | `#1D47B8` | Depth partner in gradients; emphasis text (light mode) |
-| Deep | `#16204F` | Darkest gradient stop; shadows' tint |
-| Amber | `#FFC24A` | THE action color — download/buy CTAs only. Never decorative. |
-| Amber ink | `#7A4D00` | Text on amber |
-| Light bg / ink | `#F6F8FC` / `#131A33` | Page base, light |
-| Dark bg / ink | `#0B1026` / `#EEF2FB` | Page base, dark |
+| Pink | `#8E4A7C` | The back tile. Paired with blue, never alone |
+| Blue | `#3D64AA` | The front tile. Text selection and any accent |
+| Light bg / ink | `#F7F6F9` / `#15192E` | Page base, light |
+| Dark bg / ink | `#0D1124` / `#ECEEF6` | Page base, dark |
 
-Rules: gradients are always azure→indigo(→deep), light from the top. Amber
-appears at most twice per screen. Success/error semantics follow macOS system
-colors, never brand colors.
+The sun amber in the icon stays in the icon. Success and error follow macOS system colors.
 
 ## Type
 
-- **Display / headlines:** New York (`ui-serif`), weight 600, tight leading
-  (1.05–1.15), italic for the emotional word. Fallback Georgia.
-- **Body / UI:** SF Pro (`-apple-system`), 17px base.
-- **Technical facts:** SF Mono (`ui-monospace`), small caps kickers with
-  0.1em+ tracking. Facts and system requirements are ALWAYS mono.
+- Headlines: New York (`ui-serif`), weight 600, tight leading. Fallback Georgia.
+- Body: SF Pro (`-apple-system`), 18px base.
+- No all-caps labels, no tracked-out kickers, no monospace "fact" strips.
 
-Rationale: every reader of this product is on an Apple device; using Apple's
-own faces renders the brand in the platform's voice with zero webfont weight.
+Every reader is on an Apple device, so Apple's own faces cost nothing to load.
 
-## Materials & depth
+## Layout and motion
 
-Glass cards: translucent surface + `backdrop-filter: blur(18-22px) saturate(1.4)`
-+ 1px hairline border. Atmosphere: fixed radial azure washes + ~3% noise grain.
-Shadows are indigo-tinted, long and soft (`0 24px 60px -24px`), never gray.
-
-## Motion
-
-One staged entrance per page (staggered rise, 80ms steps). The sync ring
-rotates slowly (≥12s period) — the only perpetual motion allowed. Scroll
-reveals via CSS scroll-driven animations behind `@supports`, and everything
-respects `prefers-reduced-motion`.
+One narrow column. No glass cards, grain, fake app windows or icon grids. One entrance on load, off under `prefers-reduced-motion`.
 
 ## Voice
 
-Problem-first, confident, zero hype. Name the constraint, then the removal of
-it ("Photos opens one library. You have more than one."). Numbers over
-adjectives. Honesty is a feature: the comparison table concedes PowerPhotos'
-App Store presence; the safety section explains, never reassures vaguely.
-Words we never use: "supercharge", "seamless", "blazingly", "AI-powered".
+Say what the app does in plain sentences, then say where it falls short. Claim only what the app does today, and never imply it can be downloaded or bought before it can.
+
+Never use: em dashes, middots or dashes as separators between phrases, eyebrows above headings, "supercharge", "seamless", "blazingly", "AI-powered", or a feature that is really a release step (signing, notarization).
 
 ## Icon
 
-Generated parametrically in the app repo: `Tools/IconGen/generate-icon.swift`
-(all sizes from geometry; `--layers` mode emits flat Liquid Glass layers).
-Site uses the 512px render as `/icon.png` (favicon, touch icon, og:image).
-Regenerate there — never hand-edit exports.
+Drawn from geometry by `Tools/IconGen/icon.py` in the app repo, which writes `Resources/AppIcon.icns`. The site's `/icon.png` is the 512px rendition from that file (`iconutil -c iconset`). Regenerate there and re-export; never hand-edit.
