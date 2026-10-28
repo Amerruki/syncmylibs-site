@@ -14,14 +14,12 @@
       "WebFetch(domain:sparkle-project.org)",
       "WebFetch(domain:syncmylibs.app)",
       "WebSearch",
-
       "Bash(git status:*)",
       "Bash(git log:*)",
       "Bash(git show:*)",
       "Bash(git diff:*)",
       "Bash(git branch:*)",
       "Bash(git ls-files:*)",
-
       "Bash(ls:*)",
       "Bash(cat:*)",
       "Bash(head:*)",
@@ -37,6 +35,23 @@
     "deny": [
       "Bash(rm -rf:*)",
       "Bash(git push --force:*)"
+    ]
+  },
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git -C \"$CLAUDE_PROJECT_DIR\" config core.hooksPath .githooks || true"
+          }
+        ]
+      }
     ]
   }
 }
