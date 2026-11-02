@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SyncMyLibs</title>
+<meta name="description" content="A new way to manage your photo libraries. Coming soon.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0d1330">
+<link rel="icon" type="image/png" href="/icon.png">
+<link rel="apple-touch-icon" href="/icon.png">
+<meta property="og:title" content="SyncMyLibs">
+<meta property="og:description" content="A new way to manage your photo libraries. Coming soon.">
+<meta property="og:image" content="https://syncmylibs.app/icon.png">
+<meta property="og:url" content="https://syncmylibs.app">
+<style>
+* { margin: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  display: grid; place-items: center;
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+  color: #f2f3fa;
+  background:
+    radial-gradient(40rem 32rem at 30% 30%, rgba(214, 96, 160, 0.22), transparent 70%),
+    radial-gradient(40rem 32rem at 72% 68%, rgba(74, 132, 222, 0.24), transparent 70%),
+    linear-gradient(180deg, #18214a, #080b1a);
+  -webkit-font-smoothing: antialiased;
+}
+main { text-align: center; }
+img { width: 168px; height: 168px; display: block; margin: 0 auto 1.25rem; }
+h1 { font-size: clamp(2.25rem, 7vw, 3.25rem); font-weight: 700; letter-spacing: -0.02em; }
+p { margin-top: 0.6rem; font-size: clamp(1.1rem, 3.6vw, 1.35rem); color: rgba(242, 243, 250, 0.78); }
+.soon {
+  display: inline-block; margin-top: 2rem; padding: 0.55rem 1.3rem;
+  border-radius: 999px; font-size: 1rem; font-weight: 600; color: #f2f3fa;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+}
+</style>
+</head>
+<body>
+<main>
+  <img src="/icon.png" alt="SyncMyLibs app icon" width="168" height="168">
+  <h1>SyncMyLibs</h1>
+  <p>A new way to manage your photo libraries</p>
+  <span class="soon">Coming soon</span>
+</main>
+</body>
+</html>
